@@ -1,0 +1,103 @@
+/* You can add global styles to this file, and also import other style files */
+.bodyodi{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: white;
+    }
+    .video-container {
+        height: 720px;
+        width: 700px;
+        position: left;
+        padding-left: 0%;
+        overflow: hidden;
+        border-right: 3px solid #011627;
+      }
+      
+      .card {
+        overflow: hidden;
+        width: 100%;
+        max-width: 25rem;
+        margin: 8rem;
+        padding: 20px;
+        border-radius: 15px;
+        align-items: center;
+        
+      }
+      
+      .card-conta {
+        overflow: hidden;
+        width: 10rem;
+        background-position: center;
+        background-size: cover;
+      }
+      
+      .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      
+      .custom-btn {
+        width: 400px;
+        border-radius: 50px; /* Makes the edges round */
+        padding: 15px; /* Makes the button long */
+        font-size: 1.5rem;
+      }
+      
+      .custom-btn:hover {
+        background-image: url("/assets/guest/img/gallery/eye2.png");
+        background-size: 230px;
+        font-weight: 3rem;
+        color: white;
+      }
+      
+      .shadow-lg {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      /* Media queries for mobile view */
+      @media (max-width: 768px) {
+        
+        .navbar-brand img {
+            max-width: 150px;
+          }
+          
+          .navbar-nav .nav-link {
+            font-size: 1.2rem;
+            padding: 10px;
+          }
+          .navba-sub{
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-style: italic
+            ;
+            color: #7261a3;
+          }
+          .navba{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-style: italic
+            ;
+            color: #011627;
+          }
+        .video-container {
+          height: auto;
+          width: 100%;
+          border-right: none;
+          border-bottom: 3px solid #011627;
+          object-fit: cover;
+        }
+        .video-content {
+            object-fit: cover;
+          }
+        .card {
+          margin: 2rem auto;
+          max-width: 90%;
+        }
+      
+        .card-conta {
+          width: 100%;
+        }
+      
+        .custom-btn {
+          font-size: 1rem;
+          padding: 10px;
+        }
+      }

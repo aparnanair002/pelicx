@@ -1,0 +1,72 @@
+<div class="container-fluid d-flex" style="width: 84%;position:absolute;right:0;overflow-y:0;">
+
+    <div class="content flex-grow-1">
+    
+       
+        <h3 class="mb-3">
+          <span>Home</span> / <span class="menu-text">Add State</span>
+        </h3>
+
+      <!-- App Hero header ends -->
+  
+      <!-- Row start -->
+      <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-4 col-lg-5 col-sm-6 col-12">
+                <form class="my-5" [formGroup]="stateform">
+                    <div class="border border-dark rounded-2 p-4 mt-5">
+                        <div class="login-form">
+                                <div class="mb-3">
+                                <label class="form-label">New State</label>
+                                <input type="text" class="form-control" formControlName="state_name" placeholder="Enter new State"  required
+                                />
+                            </div>
+                
+                            <div class="d-grid py-3 mt-4">
+                                <button type="submit" class="btn btn-lg btn-primary" (click)="onSubmit()">
+                                    Add
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-12 col-sm-12 col-12">
+                <table class="table table-hover text-center" style="width: 100%; max-width: 800px; overflow: auto;">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" style="width: 10%;">SI NO.</th>
+                            <th scope="col" style="width: 50%;">State</th>
+                            <th scope="col" style="width: 20%;">Edit</th>
+
+                            <th scope="col" style="width: 20%;">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of statearray; let i = index">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ data.state_name }}</td>
+                            <td>
+                                <div class="d-flex justify-content-center">
+                                    <button type="button" class="btn btn-success btn-sm ms-2" [routerLink]="['/adminMaster/editstate',data.state_id]">Edit</button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex justify-content-center">
+                                    <button type="button" class="btn btn-danger btn-sm ms-2" (click)="onDelete(data.state_id)">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+  <!-- App body ends -->
+  <router-outlet></router-outlet>

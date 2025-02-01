@@ -1,0 +1,107 @@
+<div class="container-fluid d-flex" style="width: 84%;position:absolute;right:0;overflow-y:0;">
+
+    <div class="content flex-grow-1">
+    
+       
+        <h3 class="mb-3">
+          <span>Home</span> / <span class="menu-text">Add District</span>
+        </h3>
+
+      <!-- App Hero header ends -->
+  
+      <!-- Row start -->
+      <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-4 col-lg-5 col-sm-6 col-12">
+                <form class="my-5" [formGroup]="locform" >
+                    <div class="border border-dark rounded-2 p-4 mt-5">
+                        <div class="login-form">
+                            <div class="form-group">
+
+                                <label
+                                
+                                for="exampleSelectGender"><strong>state</strong></label>
+                                
+                                <select class="form-control mb-3" formControlName="state_id" (change)="onStateChange()">
+                                <option disabled selected value="">...Choose state...</option>
+                                <i class="treeview"></i>
+                                <option *ngFor="let data of statearray"
+                                value="{{data.state_id}}">{{ data.state_name }}</option>
+                                
+                                </select>
+                                
+                                </div>
+                            <div class="form-group">
+
+                                <label
+                                
+                                for="exampleSelectGender"><strong>District</strong></label>
+                                
+                                <select class="form-control mb-3" formControlName="district_id" (change)="viewlocation()">
+                                <option disabled selected value="">...Choose District...</option>
+                                <i class="treeview"></i>
+                                <option *ngFor="let data of locarray"
+                                value="{{data.district_id}}">{{ data.district_name }}</option>
+                                
+                                </select>
+                                
+                                </div>
+                                <div class="mb-5">
+                                <label ><strong>New Location</strong> </label>
+                                <input type="text" class="form-control" formControlName="loc_name"  placeholder="Enter new district"  required
+                                />
+                            </div>
+                
+                            <div class="d-grid py-3 mt-4">
+                                <button type="submit" (click)="onSubmit()" class="btn btn-lg btn-primary" >
+                                    Add
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-8 col-lg-12 col-sm-12 col-12">
+                <table class="table table-hover text-center" style="width: 100%; max-width: 800px; overflow: auto;">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col" style="width: 10%;">SI NO.</th>
+                            <th scope="col" style="width: 20%;">State</th>
+                            <th scope="col" style="width: 20%;">District</th>
+
+                            <th scope="col" style="width: 20%;">Location</th>
+                            <th scope="col" style="width: 20%;">Edit</th>
+                            <th scope="col" style="width: 10%;">Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of arrayfull; let i = index">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ data.state_name }}</td>
+                            <td>{{ data.district_name }}</td>
+                            <td>{{ data.loc_name }}</td>
+                            <td>
+                                <div class="d-flex justify-content-center">
+                                    <button type="button" class="btn btn-success btn-sm ms-2" [routerLink]="['/adminMaster/editloc',data.loc_id]">Edit</button>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex justify-content-center">
+                                    <button type="button" (click)="onDelete(data.loc_id)" class="btn btn-danger btn-sm ms-2" >Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+  </div>
+  <!-- App body ends -->
+  <router-outlet></router-outlet>

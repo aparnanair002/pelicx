@@ -1,0 +1,80 @@
+<div class="container-fluid d-flex" style="width: 84%;position:absolute;right:0;overflow-y:0;">
+
+    <div class="content flex-grow-1">
+    
+       
+        <h3 class="mb-3">
+          <span>Home</span> / <span class="menu-text">Edit District</span>
+        </h3>
+
+      <!-- App Hero header ends -->
+  
+      <!-- Row start -->
+      <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-4 col-lg-5 col-sm-6 col-12">
+                <form class="my-5" [formGroup]="editlocform">
+                    <div class="border border-dark rounded-2 p-4 mt-5">
+                        <div class="login-form">
+                            <div class="form-group">
+
+                                <label
+                                
+                                for="exampleSelectGender"><strong>state</strong></label>
+
+                                <select class="form-control mb-3" formControlName="state_id" (change)="onStateChange()">
+                                <option disabled selected value="">...Choose state...</option>
+                                <i class="treeview"></i>
+                                <option *ngFor="let data of statearray"
+                                value="{{data.state_id}}">{{ data.state_name }}</option>
+                                
+                                </select>
+                                
+                                </div>
+                            <div class="form-group">
+
+                                <label
+                                
+                                for="exampleSelectGender"><strong>District</strong></label>
+                                <select class="form-control mb-3" formControlName="district_id">
+                                <option disabled selected value="">...Choose District...</option>
+                                <i class="treeview"></i>
+                                <option *ngFor="let data of locarray"
+                                value="{{data.district_id}}">{{ data.district_name }}</option>
+                                
+                                </select>
+                                
+                                </div>
+                                <div class="mb-5">
+                                <label ><strong>New Location</strong> </label>
+                                <input type="text" class="form-control" formControlName="loc_name"  placeholder="Enter new district"  required
+                                />
+                            </div>
+                
+                            <div class="mt-5">
+                                <button
+                                  type="submit"
+                                  class="btn btn-lg btn-success"
+                                  style="margin-left: 15%;"
+                                  (click)="onSubmit()"
+                                  
+                                >
+                                  change
+                                </button>
+                              
+                                <button
+                                type="submit"
+                                class="btn btn-lg btn-primary"
+                                style="margin-left: 15%;"
+                                [routerLink]="['/adminMaster/locationadd']"
+                              >
+                                Back
+                              </button>
+                              </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
