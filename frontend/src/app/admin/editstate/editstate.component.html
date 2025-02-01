@@ -1,0 +1,59 @@
+<div
+  class="container-fluid d-flex"
+  style="width: 84%; position: absolute; right: 0; overflow-y: 0"
+>
+  <div class="content flex-grow-1">
+    <h3 class="mb-3">
+      <span>Home</span> / <span class="menu-text">Edit State</span>
+    </h3>
+
+    <!-- App Hero header ends -->
+
+    <!-- Row start -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-4 col-lg-5 col-sm-6 col-12">
+          <form class="my-5" [formGroup]="editstateform">
+            <div class="border border-dark rounded-2 p-4 mt-5">
+              <div class="login-form">
+                <div class="mb-3">
+                  <label><strong> State</strong></label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    formControlName="state_name"
+                    
+                    placeholder="Enter new State"
+                    required
+                  />
+                </div>
+
+                <div class="mt-5">
+                  <button
+                    type="submit"
+                    class="btn btn-lg btn-success"
+                    style="margin-left: 15%;"
+                    (click)="onSubmit()"
+                    
+                  >
+                    change
+                  </button>
+                
+                  <button
+                  type="submit"
+                  class="btn btn-lg btn-primary"
+                  style="margin-left: 15%;"
+                  [routerLink]="['/adminMaster/stateadd']"
+                >
+                  Back
+                </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

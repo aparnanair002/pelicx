@@ -1,0 +1,56 @@
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var adminlogin = require('./routes/adminlogin');
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var addstate=require('./routes/addstate');
+var stateview=require('./routes/stateview');
+var adddistrict=require('./routes/adddistrict');
+var districtview=require('./routes/districtview');
+var addlocation=require('./routes/addlocation');
+var deletestateyid=require('./routes/deletestateyid');
+var deletedistrictbyid=require('./routes/deletedistrictbyid');
+var locaview=require('./routes/locaview');
+var deletelocationbyid=require('./routes/deletelocationbyid');
+var stateedit=require('./routes/stateedit');
+var getstatebyid=require('./routes/getstatebyid');
+var districtedit=require('./routes/districtedit');
+var getdistrictbyid=require('./routes/getdistrictbyid.');
+var getlocbyid=require('./routes/getlocbyid');
+var locedit=require('./routes/locedit');
+var upload=require('./routes/upload');
+var cors=require('cors');
+var app = express();
+
+
+
+app.use(cors());
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/addstate',addstate);
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/adminlogin', adminlogin);
+app.use('/stateview',stateview);
+app.use('/adddistrict',adddistrict);
+app.use('/addlocation',addlocation);
+app.use('/districtview',districtview);
+app.use('/deletestateyid',deletestateyid);
+app.use('/deletedistrictbyid',deletedistrictbyid);
+app.use('/locaview',locaview);
+app.use('/deletelocationbyid',deletelocationbyid);
+app.use('/stateedit',stateedit);
+app.use('/getstatebyid',getstatebyid);
+app.use('/getdistrictbyid',getdistrictbyid);
+app.use('/districtedit',districtedit);
+app.use('/getlocbyid',getlocbyid);
+app.use('/locedit',locedit);
+app.use('/upload',upload);
+global. basedir = path.resolve(path.dirname(''));
+
+module.exports = app;

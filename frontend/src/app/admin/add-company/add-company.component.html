@@ -1,0 +1,187 @@
+<div class="container-fluid d-flex mt-5" style="width: 84%;position:absolute;right:0;overflow-y:0;">
+
+    <div class="content flex-grow-1">
+    <!-- Row start -->
+<div class="row">
+    <div class="col-xxl-12">
+      <div class="card shadow mb-4">
+        <div class="card-body">
+          <form class="row g-3 needs-validation" [formGroup]="compinsertform">
+            <div class="col-md-6">
+                <div class="was-validated">
+                    <label for="validationCustom01" class="form-label">Company Name</label>
+                    <input type="text" class="form-control" formControlName="name" id="validationCustom01" required />
+                    <div class="valid-feedback">great!</div>
+                  </div>
+            </div>
+            <div class="col-md-6">
+                <label for="formFile" class="form-label">Logo</label>
+                <input type="file" formControlName="logo" (change)="selectFile($event)" class="form-control"
+                id="exampleInputUsername2" placeholder="image">
+              </div>
+            </div>
+            <div class="col-md-6">
+
+                <label class="form-label">Description</label>
+                <textarea class="form-control" formControlName="description" placeholder="Enter Company Description" rows="5"></textarea>
+         
+        </div>
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+        </div>
+        <div class="col-md-6">
+        </div>
+            <div class="col-md-4">
+                <div class="was-validated">
+
+                <label for="validationCustomUsername" class="form-label">Email</label>
+                <div class="input-group has-validation">
+                  <span class="input-group-text" id="inputGroupPrepend">@</span>
+                  <input type="text" class="form-control"  formControlName="email" id="validationCustomUsername" 
+                    aria-describedby="inputGroupPrepend" required />
+                </div>
+                  <div class="invalid-feedback">
+                    Please type your email.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="was-validated">
+
+              <label class="form-label">Password</label>
+                      <input type="password"  formControlName="password" class="form-control" value="" required />
+                      </div>
+                      </div>
+                
+            <div class="col-md-4">
+                <div class="was-validated">
+
+            <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" value="" required />
+            </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="was-validated">
+
+              <label for="validationCustom02" class="form-label">Phone Number </label>
+              <input type="text" class="form-control" formControlName="phone" id="validationCustom02" required />
+              <div class="invalid-feedback"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="was-validated">
+
+                <label for="validationCustom05" class="form-label">Registration Date</label>
+                <input type="date" class="form-control" formControlName="regdate"  id="validationCustom05" required />
+                <div class="invalid-feedback"></div>
+                </div>
+              </div>
+              <div class="col-md-10">
+            </div>
+            <div class="col-md-10">
+            </div>
+            <div class="col-md-3">
+              <div class="was-validated">
+
+                <label
+                                
+                for="exampleSelectGender"><strong>state</strong></label>
+                
+                <select class="form-control mb-3" formControlName="state_id" required (change)="onStateChange()">
+                <option disabled selected value="">...Choose state...</option>
+                <i class="treeview"></i>
+                <option *ngFor="let data of statearray"
+                value="{{data.state_id}}">{{ data.state_name }}</option>
+                
+                </select>
+              <div class="invalid-feedback"></div>
+              </div>
+            </div>
+            <div class="col-md-3">
+                <div class="was-validated">
+              <label for="validationCustom04" class="form-label">District</label>
+              <select class="form-control mb-3" formControlName="district_id" (change)="viewlocation()"required>
+                <option disabled selected value="">...Choose District...</option>
+                <i class="treeview"></i>
+                <option *ngFor="let data of distarray"
+                value="{{data.district_id}}">{{ data.district_name }}</option>
+                
+                </select>
+              <div class="invalid-feedback"></div>
+                </div>
+            </div>
+              <div class="col-md-3">
+                <div class="was-validated">
+
+                <label for="validationCustom04" class="form-label">Location</label>
+                <select class="form-control mb-3" formControlName="loc_id" required>
+                  <option disabled selected value="">...Choose Location...</option>
+                  <i class="treeview"></i>
+                  <option *ngFor="let data of locarray"
+                  value="{{data.loc_id}}">{{ data.loc_name }}</option>
+                  
+                  </select>
+                <div class="invalid-feedback"></div>
+            </div>
+              </div>
+              
+              
+
+
+            <div class="col-md-3">
+                <div class="was-validated">
+
+              <label for="validationCustom05" class="form-label">Zip</label>
+              <input type="text" class="form-control" formControlName="zipcode" id="validationCustom05" required />
+              <div class="invalid-feedback"></div>
+            </div>
+            </div>
+            <div class="col-md-6">
+                <div class="was-validated">
+
+                      <label class="form-label">Address</label>
+                      <textarea class="form-control" formControlName="address" rows="5" required></textarea>
+                      <div class="invalid-feedback"></div>
+                    </div>
+              </div>
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required />
+                <label class="form-check-label" for="invalidCheck">
+                  Agree to terms and conditions
+                </label>
+                <div class="invalid-feedback">
+                  You must agree before submitting.
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary" type="submit">
+                Submit 
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+</div>    
+<script src="/assets/admin/js/jquery.min.js"></script>
+<script src="/assets/admin/js/bootstrap.bundle.min.js"></script>
+
+<!-- *************
+        ************ Vendor Js Files *************
+    ************* -->
+
+<!-- Overlay Scroll JS -->
+<script src="/assets/admin/vendor/overlay-scroll/jquery.overlayScrollbars.min.js"></script>
+<script src="/assets/admin/vendor/overlay-scroll/custom-scrollbar.js"></script>
+
+<!-- Custom JS files -->
+<script src="/assets/admin/js/custom.js"></script>
+<script src="/assets/admin/js/validations.js"></script>
+<router-outlet></router-outlet>
+  <!-- Row end -->
