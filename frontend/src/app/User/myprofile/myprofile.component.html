@@ -1,0 +1,56 @@
+
+	<div class="container centered-container">
+    <div class="profile-container"> <!-- New container for the profile -->
+
+		<div class="profile" *ngFor="let row of arrayfull">
+
+			<div class="profile-image">
+
+				<img src="http://localhost:3000/images/{{row.logo}}" alt="" width="250" height="250">
+
+			</div>
+
+			<div class="profile-user-settings mt-3">
+
+				<h3 class="profile-user-name">{{row.fname}}📷✈️🏕️</h3>
+
+				<button class="btn profile-edit-btn" [routerLink]="['/UserMaster/myprofileedit']">Edit Profile</button>
+
+				<button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
+
+			</div>
+
+
+			<div class="profile-bio mt-5">
+
+				Address<p><span class="profile-real-name">{{row.address}}<br>{{row.contact_no}}<br>{{row.pin_code}}</span></p>
+				<br>About me
+				<p><span class="profile-real-name">{{row.description}}</span></p>
+				<br>Date of Birth
+				<p><span class="profile-real-name">{{row.dob | date:"dd-MM-yyyy"}}</span></p>
+				<br>
+
+			</div>
+
+        </div> <!-- End of profile section -->
+    </div>
+
+	</div>
+	<!-- End of container -->
+
+
+<main>
+
+	<div class="container">
+
+		<div class="gallery">
+
+				
+		</div>
+		<!-- End of gallery -->
+
+
+	</div>
+	<!-- End of container -->
+
+</main>

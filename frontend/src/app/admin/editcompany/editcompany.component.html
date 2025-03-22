@@ -6,17 +6,15 @@
     <div class="col-xxl-12">
       <div class="card shadow mb-4">
         <div class="card-body">
-          <form class="row g-3 needs-validation" [formGroup]="compinsertform">
+          <form class="row g-3 needs-validation" [formGroup]="editcompanyform">
             <!-- Company Name -->
             <div class="col-md-6">
               <div class="was-validated">
-                <label for="validationCustom01" class="form-label"
-                  >Company Name</label
-                >
+                <label for="validationCustom01" class="form-label">Company Name</label>
                 <input
                   type="text"
                   class="form-control"
-                  formControlName="name"
+                  formControlName="col_name"
                   id="validationCustom01"
                   required
                 />
@@ -29,7 +27,7 @@
               <label for="formFile" class="form-label">Logo</label>
               <input
                 type="file"
-                formControlName="logo"
+                formControlName="col_pict"
                 (change)="selectFile($event)"
                 class="form-control"
                 id="exampleInputUsername2"
@@ -42,64 +40,20 @@
               <label class="form-label">Description</label>
               <textarea
                 class="form-control"
-                formControlName="description"
+                formControlName="col_descr"
                 placeholder="Enter Company Description"
                 rows="5"
               ></textarea>
             </div>
 
-            <!-- Email -->
-            <div class="col-md-4">
-              <div class="was-validated">
-                <label for="validationCustomUsername" class="form-label"
-                  >Email</label
-                >
-                <div class="input-group has-validation">
-                  <span class="input-group-text" id="inputGroupPrepend">@</span>
-                  <input
-                    type="text"
-                    class="form-control"
-                    formControlName="email"
-                    id="validationCustomUsername"
-                    aria-describedby="inputGroupPrepend"
-                    required
-                  />
-                </div>
-                <div class="invalid-feedback">Please type your email.</div>
-              </div>
-            </div>
-
-            <!-- Password -->
-            <div class="col-md-4">
-              <div class="was-validated">
-                <label class="form-label">Password</label>
-                <input
-                  type="password"
-                  formControlName="password"
-                  class="form-control"
-                  required
-                />
-              </div>
-            </div>
-
-            <!-- Confirm Password -->
-            <div class="col-md-4">
-              <div class="was-validated">
-                <label class="form-label">Confirm Password</label>
-                <input type="password" class="form-control" required />
-              </div>
-            </div>
-
             <!-- Phone Number -->
             <div class="col-md-4">
               <div class="was-validated">
-                <label for="validationCustom02" class="form-label"
-                  >Phone Number</label
-                >
+                <label for="validationCustom02" class="form-label">Phone Number</label>
                 <input
                   type="text"
                   class="form-control"
-                  formControlName="phone"
+                  formControlName="col_phone"
                   id="validationCustom02"
                   required
                 />
@@ -110,13 +64,11 @@
             <!-- Registration Date -->
             <div class="col-md-4">
               <div class="was-validated">
-                <label for="validationCustom05" class="form-label"
-                  >Liscenced Date</label
-                >
+                <label for="validationCustom05" class="form-label">Liscenced Date</label>
                 <input
                   type="date"
                   class="form-control"
-                  formControlName="licdate"
+                  formControlName="col_licdate"
                   id="validationCustom05"
                   required
                 />
@@ -124,6 +76,7 @@
               </div>
             </div>
 
+          
             <!-- State -->
             <div class="col-md-3">
               <div class="was-validated">
@@ -136,8 +89,7 @@
                 >
                   <option disabled selected value="">...Choose state...</option>
                   <option
-                    *ngFor="let data of statearray"
-                    value="{{ data.state_id }}"
+                    *ngFor="let data of statearray" value="{{data.state_id}}"
                   >
                     {{ data.state_name }}
                   </option>
@@ -149,9 +101,7 @@
             <!-- District -->
             <div class="col-md-3">
               <div class="was-validated">
-                <label for="validationCustom04" class="form-label"
-                  >District</label
-                >
+                <label for="validationCustom04" class="form-label">District</label>
                 <select
                   class="form-control mb-3"
                   formControlName="district_id"
@@ -161,73 +111,75 @@
                   <option disabled selected value="">
                     ...Choose District...
                   </option>
-                  <option
-                    *ngFor="let data of distarray"
-                    value="{{ data.district_id }}"
+                  <!-- <option
+                    *ngFor="let hey of distarray"
+                    value="{{hey.district_id}}"
                   >
-                    {{ data.district_name }}
-                  </option>
+                    {{ hey.district_name }}
+                  </option> -->
                 </select>
                 <div class="invalid-feedback"></div>
               </div>
             </div>
 
+            <!-- Location -->
             <div class="col-md-3">
               <div class="was-validated">
-                <label for="validationCustom04" class="form-label"
-                  >Location</label
-                >
+                <label for="validationCustom04" class="form-label">Location</label>
                 <select
                   class="form-control mb-3"
                   formControlName="loc_id"
                   required
                 >
-                  <option disabled selected value="">
-                    ...Choose Location...
-                  </option>
-                  <i class="treeview"></i>
-                  <option
-                    *ngFor="let data of locarray"
-                    value="{{ data.loc_id }}"
-                  >
-                    {{ data.loc_name }}
-                  </option>
+                <option disabled [selected]="true">
+                choose
+                </option>
+                <!-- <option
+                  *ngFor="let data of locarray"
+                  [value]="data.loc_id"
+                >
+                  {{ data.loc_name }}
+                </option> -->
                 </select>
                 <div class="invalid-feedback"></div>
               </div>
             </div>
 
+            <!-- Zip -->
             <div class="col-md-3">
               <div class="was-validated">
                 <label for="validationCustom05" class="form-label">Zip</label>
                 <input
                   type="text"
                   class="form-control"
-                  formControlName="zipcode"
+                  formControlName="col_zip"
                   id="validationCustom05"
                   required
                 />
                 <div class="invalid-feedback"></div>
               </div>
             </div>
+
+            <!-- Address -->
             <div class="col-md-6">
               <div class="was-validated">
                 <label class="form-label">Address</label>
                 <textarea
                   class="form-control"
-                  formControlName="address"
+                  formControlName="col_address"
                   rows="5"
                   required
                 ></textarea>
                 <div class="invalid-feedback"></div>
               </div>
             </div>
+
+            <!-- Terms and Conditions -->
             <div class="col-12">
               <div class="form-check">
                 <input
                   class="form-check-input"
                   type="checkbox"
-                  value=""
                   id="invalidCheck"
                   required
                 />
@@ -239,29 +191,22 @@
                 </div>
               </div>
             </div>
+
+            <!-- Submit Button -->
             <div class="col-12">
-              <button class="btn btn-primary" type="submit" (click)="onSubmit()">Submit</button>
+              <button class="btn btn-primary" type="submit">Submit</button>
             </div>
           </form>
         </div>
- </div>
- </div>
- </div>
- </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
 <script src="/assets/admin/js/jquery.min.js"></script>
 <script src="/assets/admin/js/bootstrap.bundle.min.js"></script>
-
-<!-- *************
-        ************ Vendor Js Files *************
-    ************* -->
-
-<!-- Overlay Scroll JS -->
 <script src="/assets/admin/vendor/overlay-scroll/jquery.overlayScrollbars.min.js"></script>
 <script src="/assets/admin/vendor/overlay-scroll/custom-scrollbar.js"></script>
-
-<!-- Custom JS files -->
 <script src="/assets/admin/js/custom.js"></script>
 <script src="/assets/admin/js/validations.js"></script>
-<!-- Row end -->

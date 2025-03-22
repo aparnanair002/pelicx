@@ -14,6 +14,12 @@ import { EditstateComponent } from './admin/editstate/editstate.component';
 import { EditdistrictComponent } from './admin/editdistrict/editdistrict.component';
 import { EditlocationComponent } from './admin/editlocation/editlocation.component';
 import { ViewcompanyComponent } from './admin/viewcompany/viewcompany.component';
+import { AddCompanyComponent } from './admin/add-company/add-company.component';
+import { EditcompanyComponent } from './admin/editcompany/editcompany.component';
+import { UsermasterComponent } from './User/usermaster/usermaster.component';
+import { UserhomeComponent } from './User/userhome/userhome.component';
+import { MyprofileComponent } from './User/myprofile/myprofile.component';
+import { MyprofileeditComponent } from './User/myprofileedit/myprofileedit.component';
 
 const routes: Routes = [
   {
@@ -27,11 +33,11 @@ const routes: Routes = [
     {path:'stateadd', component:AddStateComponent},
     {path:'districtadd', component:AdddistrictComponent},
     {path:'viewcompany', component:ViewcompanyComponent },
-
+    {path:'company', component:AddCompanyComponent },
     {path:'editstate/:id', component:EditstateComponent},
     {path:'editdist/:id', component:EditdistrictComponent},
     {path:'editloc/:id', component:EditlocationComponent},
-
+    {path:'editcompany/:id',component:EditcompanyComponent},
     { path: '', redirectTo: '/adminhome', pathMatch: 'full' },
 
  ] },
@@ -40,12 +46,27 @@ const routes: Routes = [
     path: 'guest',
     component: GuestMasterComponent,
     children: [
-      { path: 'signup', component: GuestsignupComponent },
+      { path: 'signup/:id', component: GuestsignupComponent },
       { path: 'signin', component: GuestsigninComponent },
+     
       { path: '', redirectTo: '/signin', pathMatch: 'full' },
     ],
   },
-  { path: '', redirectTo: '/main', pathMatch: 'full' },
+  { path: '', redirectTo: '/guest/signin', pathMatch: 'full' },
+
+  {path:'UserMaster',component:UsermasterComponent,children: [
+    { path: 'Userhome', component: UserhomeComponent },
+    { path: 'myprofile', component:MyprofileComponent },
+    { path: 'myprofileedit', component:MyprofileeditComponent },
+
+
+   
+   
+   { path: '', redirectTo: '/Userhome', pathMatch: 'full' },
+  ],
+  
+  
+},
 ];
 
 @NgModule({

@@ -1,0 +1,91 @@
+
+<main class="main" id="top">
+    <div class="container">
+        <a class="navbar-brand" >
+            <div class="container" style="height:50px"></div>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"> </span> 
+        </button></div></main>
+        <div class="justify-content-center align-items-center vh-100">
+            <div class="col-12">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-md-12">
+                    <form class="formad">
+                      <div class="mb-1 text-center">
+                        <img src="/assets/guest/img/gallery/logo_main.png" height="150" alt="logo" />
+                      </div>
+                      <div class="mb-3 text-center" style="font-weight: bold; font-size: 20px;">
+                        User Updation
+                      </div>
+                      <div class="row">
+                        <div class="col-12 col-md-6">
+                          <div class="mb-3">
+                            <input
+                              type="file"
+                              formControlName="logo"
+                              (change)="selectFile($event)"
+                              class="form-control"
+                              id="exampleInputUsername2"
+                              placeholder="{{this.img}}"
+                            />
+                          </div>
+                          <div class="mb-3">
+                            <input type="text" class="form-control" formControlName="name" placeholder="Name" />
+                          </div>
+                          <div class="mb-3">
+                            About me:
+                            <textarea class="form-control" formControlName="description" placeholder="Description"  cols="5" rows="5">
+                            </textarea>
+                          </div>
+                          <div class="mb-3">
+                            <label>Date of Birth</label>
+                            <input type="date" class="form-control" formControlName="licdate"/>
+                          </div>
+                             
+                          <div class="mb-3">
+                            <input type="text" class="form-control" formControlName="phone" placeholder="Phone Number" />
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                        <div class="mb-3">
+                            <select id="state" formControlName="state_id" class="form-control" (change)="changedistrict()">
+                              <option value="">..Choose State..</option>
+                              <option class="optioncolor" *ngFor="let data of statearr" value="{{data.state_id}}">{{data.state_name}}</option>
+                            </select>
+                          </div>
+                          <div class="mb-3">
+                            <select id="district" formControlName="district_id" class="form-control" (change)="changelocation()">
+                              <option value="">..Choose District..</option>
+                              <option class="optioncolor" *ngFor="let data of distarr" value="{{data.district_id}}">{{data.district_name}}</option>
+                            </select>
+                          </div>
+                          <div class="mb-3">
+                            <select id="city" formControlName="loc_id" class="form-control">
+                              <option value="">..Choose Location..</option>
+                              <option class="optioncolor" *ngFor="let data of locarr" value="{{data.loc_id}}">{{data.loc_name}}</option>
+                            </select>
+                          </div>
+                                 
+                         
+                          <div class="mb-3">
+                            <input type="text" formControlName="zipcode" class="form-control" placeholder="Zip Code" />
+                          </div>
+                          <div class="mb-3">
+                            Address:
+                            <textarea class="form-control" formControlName="address" placeholder="Address"  cols="5" rows="5">
+                                </textarea>
+                            </div>
+                   
+                          <div>
+                            <a class="bn-primary mt-3" (click)="onsubmit()"> Sign Up</a>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>

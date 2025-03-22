@@ -24,6 +24,7 @@ message = '';
   ngOnInit(){
     this.db.stateview().then((data:any)=>{
       this.statearray=data;
+      console.log('data',data);
     })
 
   
@@ -37,7 +38,9 @@ message = '';
     description:[''],
     email:[''],
     phone:[''],
-    regdate:[''],
+    gender:"np",
+    password:[''],
+    licdate:[''],
     address:[''],
     loc_id:[''],
     zipcode:[''],
@@ -51,6 +54,7 @@ message = '';
     console.log(state_id);
     this.db.distictview({state_id}).then((result)=>{
       this.distarray=result;
+      console.log(result);
     })
   }
   //district view on dropdown
@@ -89,7 +93,7 @@ message = '';
     //console.log(confirmation);
     if (confirmation.message == "success") {
     alert('department details registered')
-    this.router.navigate(['/adminMaster/viewuser'])
+    this.router.navigate(['/adminMaster/viewcompany'])
     }
     else {
     alert('Data not inserted, Please check your data')

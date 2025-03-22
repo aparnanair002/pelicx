@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GuestMasterComponent } from './guest-master/guest-master.component';
@@ -19,6 +18,12 @@ import { EditstateComponent } from './admin/editstate/editstate.component';
 import { EditdistrictComponent } from './admin/editdistrict/editdistrict.component';
 import { EditlocationComponent } from './admin/editlocation/editlocation.component';
 import { ViewcompanyComponent } from './admin/viewcompany/viewcompany.component';
+import { AddCompanyComponent } from './admin/add-company/add-company.component';
+import { EditcompanyComponent } from './admin/editcompany/editcompany.component';
+import { UsermasterComponent } from './User/usermaster/usermaster.component';
+import { UserhomeComponent } from './User/userhome/userhome.component';
+import { MyprofileComponent } from './User/myprofile/myprofile.component';
+import { MyprofileeditComponent } from './User/myprofileedit/myprofileedit.component';
 
 @NgModule({
   declarations: [
@@ -36,8 +41,16 @@ import { ViewcompanyComponent } from './admin/viewcompany/viewcompany.component'
     EditstateComponent,
     EditdistrictComponent,
     EditlocationComponent,
-    ViewcompanyComponent
+    ViewcompanyComponent,
+    AddCompanyComponent,
+    EditcompanyComponent,
+    UsermasterComponent,
+    UserhomeComponent,
+    MyprofileComponent,
+    MyprofileeditComponent
   ],
+
+
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -49,3 +62,4 @@ import { ViewcompanyComponent } from './admin/viewcompany/viewcompany.component'
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+

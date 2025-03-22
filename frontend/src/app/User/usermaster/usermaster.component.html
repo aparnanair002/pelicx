@@ -1,0 +1,25 @@
+<main class="main" id="top">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+      <div class="container">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"> </span>
+    </button>
+    <a class="navbar-brand" href="/g">
+        <img src="../../assets/guest/img/gallery/logo_main.png" height="90" alt="logo" />
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbar-nav ms-auto"> <!-- Aligns links to the right -->
+        <a class="nav-link" href="/home">Home</a>
+        <a class="nav-link" href="/main">Sign Up</a>
+        <a class="nav-link" href="/my-couriers">Couriers</a>
+        <a class="nav-link" href="/track-mine">Track Mine</a>
+        <a class="nav-link" href="/pickup-request">My Boxes</a>
+        <a class="nav-link" [routerLink]="['/UserMaster/myprofile']">My Profile</a>
+      </div>
+</div>
+       
+       
+      </div>
+    </nav>
+    <router-outlet></router-outlet>

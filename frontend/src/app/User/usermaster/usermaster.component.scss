@@ -1,0 +1,39 @@
+.navbar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
+}
+
+.navbar-brand img {
+    transition: transform 0.3s; /* Smooth transition for logo */
+    border-radius: 5px; /* Rounded corners for logo */
+}
+
+.navbar-brand img:hover {
+    transform: scale(1.1); /* Slightly enlarge logo on hover */
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+.nav-link {
+    font-family: 'Roboto', sans-serif; /* Updated font family */
+    color: #ffffff; /* Updated to white for better contrast */
+    font-weight: bold; /* Bold font for better visibility */
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Added transform transition */
+    padding: 10px 15px; /* Padding for better spacing */
+    border-radius: 5px; /* Rounded corners for links */
+}
+
+.nav-link:hover {
+    background-color: rgba(92, 29, 240, 0.678); /* Lighter background on hover */
+    color: #ffffff; /* Keep text color white on hover */
+}
+
+.nav-link.active {
+    color: #ffffff; /* White text for active link */
+    font-weight: bold; /* Bold font for active link */
+}
+
+.form-control {
+    background-color: #ffffff; /* Updated to white for consistency */
+    border: 1px solid #007bff; /* Border color to match navbar */
+    border-radius: 5px; /* Rounded corners */
+}

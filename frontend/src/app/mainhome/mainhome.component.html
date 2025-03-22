@@ -51,12 +51,10 @@
                   What Do you want to Do?</h5>
                
                 <div class="mt-5">
-                  <a href='/guest/signin'><button class="btn btn-primary custom-btn mb-5 mt-2" >Become a User</button>
-                  </a>
-                  <button class="btn btn-secondary custom-btn">Join as a Company</button>
+                  <button [routerLink]="['/guest/signup',(1)]" class="btn btn-primary custom-btn mb-5 mt-2" >Become a User</button>
+                  
+                  <button  [routerLink]="['/guest/signup',(2)]" class="btn btn-secondary custom-btn">Join as a Company</button>
                 
-                  <a href='/admin'><button class="btn btn-success custom-btn mt-5" >Admin</button>
-                  </a>
                 </div>
 
               </div>

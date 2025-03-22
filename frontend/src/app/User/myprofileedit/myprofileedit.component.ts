@@ -1,22 +1,22 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { DbserviceService } from '../dbservice.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { DbserviceService } from 'src/app/dbservice.service';
 
 @Component({
-  selector: 'app-guestsignup',
-  templateUrl: './guestsignup.component.html',
-  styleUrls: ['./guestsignup.component.scss'],
+  selector: 'app-myprofileedit',
+  templateUrl: './myprofileedit.component.html',
+  styleUrls: ['./myprofileedit.component.scss']
 })
-export class GuestsignupComponent {
+export class MyprofileeditComponent {
     selectedFiles?: FileList;
   currentFile?: any;
   fileInfos?: Observable<any>;
   message = '';
   users_role: any;
   Role: any;
-  userregform!: FormGroup;
+  userupdateform!: FormGroup;
   statearr: any[] = [];
   distarr: any[] = [];
   locarr: any[]=[];
@@ -24,56 +24,52 @@ export class GuestsignupComponent {
   img='';
   desc='';
   mydate: string;
+  user_id: string;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private db: DbserviceService,
     private fb: FormBuilder
   ) {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.users_role = params.get('id');
-      console.log('id', this.users_role);
-    });
   }
 
   ngOnInit() {
-    if (this.users_role == '1') {
-      this.Role = 'User';
-      this.img='Profile';
-      this.desc='About me';
-      this.mydate='Birthday'
 
-      
-    }
-    if (this.users_role == '2') {
-      this.Role = 'Company';
-      this.img='logo'
-      this.desc='About us'
-      this.mydate='License date'
-    }
-    this.userregform = this.fb.group({
+    this.userupdateform = this.fb.group({
       name:[''],
     logo:[''],
     state_id:[''],
     location_id:[''],
     district_id:[''],
     description:[''],
-    gender: [''],
-    email:[''],
     phone:[''],
-    password:[''],
     licdate:[''],
     address:[''],
     loc_id:[''],
-    zipcode:[''],
-    status:"active",
-      usertype: this.Role,
+    zipcode:['']
     });
 
     //state view
     this.db.stateview().then((result: any) => {
       this.statearr = result;
     });
+    this.user_id=localStorage.getItem('userid');
+    this.db.takeuserdata({user_id:this.user_id}).then((result:any)=>{
+      this.userreg=result;
+      this.userupdateform.setValue({
+        name:this.userreg[0].name,
+        state_id:this.userreg[0].state_id,
+        location_id:this.userreg[0].location_id,
+        district_id:this.userreg[0].district_id,
+        description:this.userreg[0].description,
+        phone:this.userreg[0].phone,
+        licdate:this.userreg[0].licdate,
+        address:this.userreg[0].address,
+        loc_id:this.userreg[0].loc_id,
+        zipcode:this.userreg[0].zipcode,
+        logo:this.userreg[0].logo,
+      })
+    })
   }
   
   selectFile(event: any): void {
@@ -82,14 +78,14 @@ export class GuestsignupComponent {
     }
 
   changedistrict() {
-    let stateid = this.userregform.value.state_id;
+    let stateid = this.userupdateform.value.state_id;
     this.db.distictview({ state_id:stateid }).then((result: any) => {
       this.distarr = result;
     });
   }
 
   changelocation(){
-    let districtid = this.userregform.value.district_id;
+    let districtid = this.userupdateform.value.district_id;
     this.db.locationview({ district_id:districtid }).then((result: any) => {
       this.locarr = result;
       });
@@ -110,8 +106,8 @@ export class GuestsignupComponent {
       }
       // End of upload
       //console.log(this.DepartmentFormGroup.value)
-      this.userregform.value.logo = this.currentFile.name;
-      this.db.addusers(this.userregform.value).then((confirmation: any) => {
+      this.userupdateform.value.logo = this.currentFile.name;
+      this.db.addusers(this.userupdateform.value).then((confirmation: any) => {
       //console.log(confirmation);
       if (confirmation.message == "success") {
       alert('department details registered')
@@ -123,5 +119,4 @@ export class GuestsignupComponent {
       })
       }
     }
-  
 }

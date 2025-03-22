@@ -21,9 +21,18 @@ var getdistrictbyid=require('./routes/getdistrictbyid.');
 var getlocbyid=require('./routes/getlocbyid');
 var locedit=require('./routes/locedit');
 var upload=require('./routes/upload');
+var companyview=require('./routes/companyview');
+var companyedit=require('./routes/companyedit');
+var companyupdate=require('./routes/companyupdate');
+var checklogin=require('./routes/checklogin');
+var userview=require('./routes/userview');
+var takeuserdata=require('./routes/takeuserdata')
+var con = require('./routes/db'); // Import MySQL connection
+
 var cors=require('cors');
 var app = express();
 
+global.__basedir = path.resolve(path.dirname(''));
 
 
 app.use(cors());
@@ -51,6 +60,12 @@ app.use('/districtedit',districtedit);
 app.use('/getlocbyid',getlocbyid);
 app.use('/locedit',locedit);
 app.use('/upload',upload);
-global. basedir = path.resolve(path.dirname(''));
+app.use('/companyview',companyview);
+app.use('/companyedit',companyedit);
+app.use('/companyupdate',companyupdate);
+app.use('/checklogin',checklogin);
+app.use('/userview',userview);
+app.use('/takeuserdata',takeuserdata);
+
 
 module.exports = app;

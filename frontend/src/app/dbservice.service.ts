@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class DbserviceService {
   constructor(private http: HttpClient) {}
+  login(data:any){
+    return this.http.post('http://localhost:3000/checklogin',data).toPromise();
+    }
 
   //Admin Login
   adminLogin(data: any) {
@@ -96,5 +99,20 @@ export class DbserviceService {
     addusers(data:any){
     return this.http.post("http://localhost:3000/users",data).toPromise()
     }
-    //End of department register
-}
+    companyview(){
+      return this.http.get("http://localhost:3000/companyview");
+      }  
+
+      companyedit(data:any){
+        return this.http.post("http://localhost:3000/companyedit",data).toPromise();
+        }  
+
+        userview(data:any)
+        {
+          return this.http.post("http://localhost:3000/userview",data).toPromise()
+        }
+        takeuserdata(data:any)
+        {
+          return this.http.post("http://localhost:3000/takeuserdata",data).toPromise()
+        }
+  }
